@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0f2027, #000);
+  font-family: Arial;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px cyan;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.score {
+  font-size: 18px;
+}
+
+select, button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+}
+
+button {
+  background: #00e5ff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #00bcd4;
+}
+
+.game-box {
+  position: relative;
+  display: inline-block;
+}
+
+canvas {
+  background: black;
+  border: 3px solid cyan;
+  box-shadow: 0 0 20px cyan;
+}
+
+.overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  opacity: 0.9;
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 14px;
+}
