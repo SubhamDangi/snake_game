@@ -8,16 +8,16 @@ const overlay = document.getElementById("overlay");
 const box = 20;
 let snake, snakeSet, direction, food, score, game, speed, started = false;
 
-// 🎯 Balanced speeds
+
 const LEVEL_SPEED = { 150: 140, 100: 100, 60: 75 };
 
-// 🔥 High score
+
 let highScore = localStorage.getItem("highScore") || 0;
 highScoreEl.innerText = highScore;
 
 function init() {
   snake = [{ x: 200, y: 200 }];
-  snakeSet = new Set(["200,200"]); // Set for fast lookup
+  snakeSet = new Set(["200,200"]); 
   direction = "RIGHT";
   score = 0;
   started = false;
@@ -34,7 +34,7 @@ function init() {
   if (game) clearInterval(game);
 }
 
-// 🎯 Food not on snake (Greedy)
+
 function randomFood() {
   let newFood;
   do {
@@ -46,7 +46,7 @@ function randomFood() {
   return newFood;
 }
 
-// 🎮 Controls
+
 document.addEventListener("keydown", e => {
   if (!started) {
     startCountdown();
@@ -59,7 +59,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
 });
 
-// ⏳ Countdown
+
 function startCountdown() {
   let count = 3;
   overlay.style.display = "block";
@@ -80,11 +80,11 @@ function drawGame() {
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, 400, 400);
 
-  // snake
+
   ctx.fillStyle = "lime";
   snake.forEach(p => ctx.fillRect(p.x, p.y, box, box));
 
-  // food
+  
   ctx.fillStyle = "red";
   ctx.fillRect(food.x, food.y, box, box);
 
@@ -97,7 +97,7 @@ function drawGame() {
 
   let key = head.x + "," + head.y;
 
-  // collision (O(1) using Set)
+
   if (
     head.x < 0 || head.y < 0 ||
     head.x >= 400 || head.y >= 400 ||
@@ -109,7 +109,7 @@ function drawGame() {
     return;
   }
 
-  // eat food
+
   if (head.x === food.x && head.y === food.y) {
     score += 10;
     scoreEl.innerText = score;
